@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.tym.dao.icpay.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.cn.tym.pojo.icpay.User" >
+    <id column="USERID" property="userid" jdbcType="VARCHAR" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="LOGINID" property="loginid" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="TEL" property="tel" jdbcType="VARCHAR" />
+    <result column="MOBILTEL" property="mobiltel" jdbcType="VARCHAR" />
+    <result column="PROVINCEID" property="provinceid" jdbcType="DECIMAL" />
+    <result column="CITYID" property="cityid" jdbcType="DECIMAL" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="ZIPCODE" property="zipcode" jdbcType="CHAR" />
+    <result column="SEX" property="sex" jdbcType="CHAR" />
+    <result column="IDENTITYID" property="identityid" jdbcType="VARCHAR" />
+    <result column="IDENTITYTYPE" property="identitytype" jdbcType="CHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="REGISTTIME" property="registtime" jdbcType="CHAR" />
+    <result column="LASTEDITTIME" property="lastedittime" jdbcType="CHAR" />
+    <result column="UNITID" property="unitid" jdbcType="DECIMAL" />
+    <result column="USERTYPE" property="usertype" jdbcType="DECIMAL" />
+    <result column="MCHNITID" property="mchnitid" jdbcType="CHAR" />
+    <result column="POINT" property="point" jdbcType="DECIMAL" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+    <result column="QUESTION" property="question" jdbcType="VARCHAR" />
+    <result column="ANSWER" property="answer" jdbcType="VARCHAR" />
+    <result column="DEPARTID" property="departid" jdbcType="DECIMAL" />
+    <result column="QD" property="qd" jdbcType="DECIMAL" />
+    <result column="QIANBAOMONEY" property="qianbaomoney" jdbcType="VARCHAR" />
+    <result column="LASTMOBILTEL" property="lastmobiltel" jdbcType="VARCHAR" />
+    <result column="YKTCITYID" property="yktcityid" jdbcType="DECIMAL" />
+    <result column="UUID" property="uuid" jdbcType="VARCHAR" />
+    <result column="MCHNMARK" property="mchnmark" jdbcType="VARCHAR" />
+    <result column="HISTORY_SCORE" property="historyScore" jdbcType="DECIMAL" />
+    <result column="CURRENT_SCORE" property="currentScore" jdbcType="DECIMAL" />
+    <result column="USERTYPE1" property="usertype1" jdbcType="DECIMAL" />
+    <result column="ACTIVEID" property="activeid" jdbcType="VARCHAR" />
+    <result column="WECHATID" property="wechatid" jdbcType="VARCHAR" />
+    <result column="WECHATICON" property="wechaticon" jdbcType="VARCHAR" />
+    <result column="PROXYORDERNO" property="proxyorderno" jdbcType="VARCHAR" />
+    <result column="ACTIVEREBATE" property="activerebate" jdbcType="DECIMAL" />
+    <result column="EDUCATION" property="education" jdbcType="VARCHAR" />
+    <result column="OCCUPATION" property="occupation" jdbcType="VARCHAR" />
+    <result column="BIRTHDAY" property="birthday" jdbcType="VARCHAR" />
+    <result column="RELNAME" property="relname" jdbcType="VARCHAR" />
+    <result column="TRANS_FLAG" property="transFlag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USERID, USERNAME, LOGINID, PASSWORD, TEL, MOBILTEL, PROVINCEID, CITYID, ADDRESS, 
+    ZIPCODE, SEX, IDENTITYID, IDENTITYTYPE, EMAIL, REGISTTIME, LASTEDITTIME, UNITID, 
+    USERTYPE, MCHNITID, POINT, STATUS, QUESTION, ANSWER, DEPARTID, QD, QIANBAOMONEY, 
+    LASTMOBILTEL, YKTCITYID, UUID, MCHNMARK, HISTORY_SCORE, CURRENT_SCORE, USERTYPE1, 
+    ACTIVEID, WECHATID, WECHATICON, PROXYORDERNO, ACTIVEREBATE, EDUCATION, OCCUPATION, 
+    BIRTHDAY, RELNAME, TRANS_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ICPAY.SYSUSERSTB
+    where USERID = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ICPAY.SYSUSERSTB
+    where USERID = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cn.tym.pojo.icpay.User" >
+    insert into ICPAY.SYSUSERSTB (USERID, USERNAME, LOGINID, 
+      PASSWORD, TEL, MOBILTEL, 
+      PROVINCEID, CITYID, ADDRESS, 
+      ZIPCODE, SEX, IDENTITYID, 
+      IDENTITYTYPE, EMAIL, REGISTTIME, 
+      LASTEDITTIME, UNITID, USERTYPE, 
+      MCHNITID, POINT, STATUS, 
+      QUESTION, ANSWER, DEPARTID, 
+      QD, QIANBAOMONEY, LASTMOBILTEL, 
+      YKTCITYID, UUID, MCHNMARK, 
+      HISTORY_SCORE, CURRENT_SCORE, USERTYPE1, 
+      ACTIVEID, WECHATID, WECHATICON, 
+      PROXYORDERNO, ACTIVEREBATE, EDUCATION, 
+      OCCUPATION, BIRTHDAY, RELNAME, 
+      TRANS_FLAG)
+    values (#{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{loginid,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{mobiltel,jdbcType=VARCHAR}, 
+      #{provinceid,jdbcType=DECIMAL}, #{cityid,jdbcType=DECIMAL}, #{address,jdbcType=VARCHAR}, 
+      #{zipcode,jdbcType=CHAR}, #{sex,jdbcType=CHAR}, #{identityid,jdbcType=VARCHAR}, 
+      #{identitytype,jdbcType=CHAR}, #{email,jdbcType=VARCHAR}, #{registtime,jdbcType=CHAR}, 
+      #{lastedittime,jdbcType=CHAR}, #{unitid,jdbcType=DECIMAL}, #{usertype,jdbcType=DECIMAL}, 
+      #{mchnitid,jdbcType=CHAR}, #{point,jdbcType=DECIMAL}, #{status,jdbcType=CHAR}, 
+      #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{departid,jdbcType=DECIMAL}, 
+      #{qd,jdbcType=DECIMAL}, #{qianbaomoney,jdbcType=VARCHAR}, #{lastmobiltel,jdbcType=VARCHAR}, 
+      #{yktcityid,jdbcType=DECIMAL}, #{uuid,jdbcType=VARCHAR}, #{mchnmark,jdbcType=VARCHAR}, 
+      #{historyScore,jdbcType=DECIMAL}, #{currentScore,jdbcType=DECIMAL}, #{usertype1,jdbcType=DECIMAL}, 
+      #{activeid,jdbcType=VARCHAR}, #{wechatid,jdbcType=VARCHAR}, #{wechaticon,jdbcType=VARCHAR}, 
+      #{proxyorderno,jdbcType=VARCHAR}, #{activerebate,jdbcType=DECIMAL}, #{education,jdbcType=VARCHAR}, 
+      #{occupation,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{relname,jdbcType=VARCHAR}, 
+      #{transFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.tym.pojo.icpay.User" >
+    insert into ICPAY.SYSUSERSTB
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="username != null" >
+        USERNAME,
+      </if>
+      <if test="loginid != null" >
+        LOGINID,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="tel != null" >
+        TEL,
+      </if>
+      <if test="mobiltel != null" >
+        MOBILTEL,
+      </if>
+      <if test="provinceid != null" >
+        PROVINCEID,
+      </if>
+      <if test="cityid != null" >
+        CITYID,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="zipcode != null" >
+        ZIPCODE,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="identityid != null" >
+        IDENTITYID,
+      </if>
+      <if test="identitytype != null" >
+        IDENTITYTYPE,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="registtime != null" >
+        REGISTTIME,
+      </if>
+      <if test="lastedittime != null" >
+        LASTEDITTIME,
+      </if>
+      <if test="unitid != null" >
+        UNITID,
+      </if>
+      <if test="usertype != null" >
+        USERTYPE,
+      </if>
+      <if test="mchnitid != null" >
+        MCHNITID,
+      </if>
+      <if test="point != null" >
+        POINT,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="question != null" >
+        QUESTION,
+      </if>
+      <if test="answer != null" >
+        ANSWER,
+      </if>
+      <if test="departid != null" >
+        DEPARTID,
+      </if>
+      <if test="qd != null" >
+        QD,
+      </if>
+      <if test="qianbaomoney != null" >
+        QIANBAOMONEY,
+      </if>
+      <if test="lastmobiltel != null" >
+        LASTMOBILTEL,
+      </if>
+      <if test="yktcityid != null" >
+        YKTCITYID,
+      </if>
+      <if test="uuid != null" >
+        UUID,
+      </if>
+      <if test="mchnmark != null" >
+        MCHNMARK,
+      </if>
+      <if test="historyScore != null" >
+        HISTORY_SCORE,
+      </if>
+      <if test="currentScore != null" >
+        CURRENT_SCORE,
+      </if>
+      <if test="usertype1 != null" >
+        USERTYPE1,
+      </if>
+      <if test="activeid != null" >
+        ACTIVEID,
+      </if>
+      <if test="wechatid != null" >
+        WECHATID,
+      </if>
+      <if test="wechaticon != null" >
+        WECHATICON,
+      </if>
+      <if test="proxyorderno != null" >
+        PROXYORDERNO,
+      </if>
+      <if test="activerebate != null" >
+        ACTIVEREBATE,
+      </if>
+      <if test="education != null" >
+        EDUCATION,
+      </if>
+      <if test="occupation != null" >
+        OCCUPATION,
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY,
+      </if>
+      <if test="relname != null" >
+        RELNAME,
+      </if>
+      <if test="transFlag != null" >
+        TRANS_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="loginid != null" >
+        #{loginid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobiltel != null" >
+        #{mobiltel,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceid != null" >
+        #{provinceid,jdbcType=DECIMAL},
+      </if>
+      <if test="cityid != null" >
+        #{cityid,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null" >
+        #{zipcode,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="identityid != null" >
+        #{identityid,jdbcType=VARCHAR},
+      </if>
+      <if test="identitytype != null" >
+        #{identitytype,jdbcType=CHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="registtime != null" >
+        #{registtime,jdbcType=CHAR},
+      </if>
+      <if test="lastedittime != null" >
+        #{lastedittime,jdbcType=CHAR},
+      </if>
+      <if test="unitid != null" >
+        #{unitid,jdbcType=DECIMAL},
+      </if>
+      <if test="usertype != null" >
+        #{usertype,jdbcType=DECIMAL},
+      </if>
+      <if test="mchnitid != null" >
+        #{mchnitid,jdbcType=CHAR},
+      </if>
+      <if test="point != null" >
+        #{point,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="question != null" >
+        #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="departid != null" >
+        #{departid,jdbcType=DECIMAL},
+      </if>
+      <if test="qd != null" >
+        #{qd,jdbcType=DECIMAL},
+      </if>
+      <if test="qianbaomoney != null" >
+        #{qianbaomoney,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmobiltel != null" >
+        #{lastmobiltel,jdbcType=VARCHAR},
+      </if>
+      <if test="yktcityid != null" >
+        #{yktcityid,jdbcType=DECIMAL},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mchnmark != null" >
+        #{mchnmark,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null" >
+        #{historyScore,jdbcType=DECIMAL},
+      </if>
+      <if test="currentScore != null" >
+        #{currentScore,jdbcType=DECIMAL},
+      </if>
+      <if test="usertype1 != null" >
+        #{usertype1,jdbcType=DECIMAL},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatid != null" >
+        #{wechatid,jdbcType=VARCHAR},
+      </if>
+      <if test="wechaticon != null" >
+        #{wechaticon,jdbcType=VARCHAR},
+      </if>
+      <if test="proxyorderno != null" >
+        #{proxyorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="activerebate != null" >
+        #{activerebate,jdbcType=DECIMAL},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="relname != null" >
+        #{relname,jdbcType=VARCHAR},
+      </if>
+      <if test="transFlag != null" >
+        #{transFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.tym.pojo.icpay.User" >
+    update ICPAY.SYSUSERSTB
+    <set >
+      <if test="username != null" >
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="loginid != null" >
+        LOGINID = #{loginid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobiltel != null" >
+        MOBILTEL = #{mobiltel,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceid != null" >
+        PROVINCEID = #{provinceid,jdbcType=DECIMAL},
+      </if>
+      <if test="cityid != null" >
+        CITYID = #{cityid,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null" >
+        ZIPCODE = #{zipcode,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="identityid != null" >
+        IDENTITYID = #{identityid,jdbcType=VARCHAR},
+      </if>
+      <if test="identitytype != null" >
+        IDENTITYTYPE = #{identitytype,jdbcType=CHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="registtime != null" >
+        REGISTTIME = #{registtime,jdbcType=CHAR},
+      </if>
+      <if test="lastedittime != null" >
+        LASTEDITTIME = #{lastedittime,jdbcType=CHAR},
+      </if>
+      <if test="unitid != null" >
+        UNITID = #{unitid,jdbcType=DECIMAL},
+      </if>
+      <if test="usertype != null" >
+        USERTYPE = #{usertype,jdbcType=DECIMAL},
+      </if>
+      <if test="mchnitid != null" >
+        MCHNITID = #{mchnitid,jdbcType=CHAR},
+      </if>
+      <if test="point != null" >
+        POINT = #{point,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="question != null" >
+        QUESTION = #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        ANSWER = #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="departid != null" >
+        DEPARTID = #{departid,jdbcType=DECIMAL},
+      </if>
+      <if test="qd != null" >
+        QD = #{qd,jdbcType=DECIMAL},
+      </if>
+      <if test="qianbaomoney != null" >
+        QIANBAOMONEY = #{qianbaomoney,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmobiltel != null" >
+        LASTMOBILTEL = #{lastmobiltel,jdbcType=VARCHAR},
+      </if>
+      <if test="yktcityid != null" >
+        YKTCITYID = #{yktcityid,jdbcType=DECIMAL},
+      </if>
+      <if test="uuid != null" >
+        UUID = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="mchnmark != null" >
+        MCHNMARK = #{mchnmark,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null" >
+        HISTORY_SCORE = #{historyScore,jdbcType=DECIMAL},
+      </if>
+      <if test="currentScore != null" >
+        CURRENT_SCORE = #{currentScore,jdbcType=DECIMAL},
+      </if>
+      <if test="usertype1 != null" >
+        USERTYPE1 = #{usertype1,jdbcType=DECIMAL},
+      </if>
+      <if test="activeid != null" >
+        ACTIVEID = #{activeid,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatid != null" >
+        WECHATID = #{wechatid,jdbcType=VARCHAR},
+      </if>
+      <if test="wechaticon != null" >
+        WECHATICON = #{wechaticon,jdbcType=VARCHAR},
+      </if>
+      <if test="proxyorderno != null" >
+        PROXYORDERNO = #{proxyorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="activerebate != null" >
+        ACTIVEREBATE = #{activerebate,jdbcType=DECIMAL},
+      </if>
+      <if test="education != null" >
+        EDUCATION = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        OCCUPATION = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="relname != null" >
+        RELNAME = #{relname,jdbcType=VARCHAR},
+      </if>
+      <if test="transFlag != null" >
+        TRANS_FLAG = #{transFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where USERID = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.tym.pojo.icpay.User" >
+    update ICPAY.SYSUSERSTB
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      LOGINID = #{loginid,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      MOBILTEL = #{mobiltel,jdbcType=VARCHAR},
+      PROVINCEID = #{provinceid,jdbcType=DECIMAL},
+      CITYID = #{cityid,jdbcType=DECIMAL},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      ZIPCODE = #{zipcode,jdbcType=CHAR},
+      SEX = #{sex,jdbcType=CHAR},
+      IDENTITYID = #{identityid,jdbcType=VARCHAR},
+      IDENTITYTYPE = #{identitytype,jdbcType=CHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      REGISTTIME = #{registtime,jdbcType=CHAR},
+      LASTEDITTIME = #{lastedittime,jdbcType=CHAR},
+      UNITID = #{unitid,jdbcType=DECIMAL},
+      USERTYPE = #{usertype,jdbcType=DECIMAL},
+      MCHNITID = #{mchnitid,jdbcType=CHAR},
+      POINT = #{point,jdbcType=DECIMAL},
+      STATUS = #{status,jdbcType=CHAR},
+      QUESTION = #{question,jdbcType=VARCHAR},
+      ANSWER = #{answer,jdbcType=VARCHAR},
+      DEPARTID = #{departid,jdbcType=DECIMAL},
+      QD = #{qd,jdbcType=DECIMAL},
+      QIANBAOMONEY = #{qianbaomoney,jdbcType=VARCHAR},
+      LASTMOBILTEL = #{lastmobiltel,jdbcType=VARCHAR},
+      YKTCITYID = #{yktcityid,jdbcType=DECIMAL},
+      UUID = #{uuid,jdbcType=VARCHAR},
+      MCHNMARK = #{mchnmark,jdbcType=VARCHAR},
+      HISTORY_SCORE = #{historyScore,jdbcType=DECIMAL},
+      CURRENT_SCORE = #{currentScore,jdbcType=DECIMAL},
+      USERTYPE1 = #{usertype1,jdbcType=DECIMAL},
+      ACTIVEID = #{activeid,jdbcType=VARCHAR},
+      WECHATID = #{wechatid,jdbcType=VARCHAR},
+      WECHATICON = #{wechaticon,jdbcType=VARCHAR},
+      PROXYORDERNO = #{proxyorderno,jdbcType=VARCHAR},
+      ACTIVEREBATE = #{activerebate,jdbcType=DECIMAL},
+      EDUCATION = #{education,jdbcType=VARCHAR},
+      OCCUPATION = #{occupation,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      RELNAME = #{relname,jdbcType=VARCHAR},
+      TRANS_FLAG = #{transFlag,jdbcType=CHAR}
+    where USERID = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>
